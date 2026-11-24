@@ -1,0 +1,870 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Integration Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="app">
+      <header class="header">
+        <img class="logo" src="assets/logo.svg" alt="Integration Portal"><span class="public-demo-badge">Public demo · fictional data</span>
+        <button class="avatar" type="button" aria-label="Profile menu" aria-controls="profile-popover" aria-expanded="false">JD</button>
+        <section class="profile-popover" id="profile-popover" aria-label="Account" hidden>
+          <div class="profile-summary">
+            <div class="profile-avatar" aria-hidden="true">JD</div>
+            <div class="profile-identity">
+              <p class="profile-name">John Doe</p>
+              <p class="profile-email">user@example.com</p>
+            </div>
+          </div>
+          <div class="profile-actions">
+            <button type="button" aria-disabled="true"><img src="assets/profile.svg" alt="">Profile</button>
+            <button type="button" aria-disabled="true"><img src="assets/logout.svg" alt="">Log out</button>
+          </div>
+        </section>
+      </header>
+
+      <nav class="rail" aria-label="Main navigation">
+        <div class="rail-group">
+          <a class="rail-item" href="#home" data-page="home" aria-current="page">
+            <span class="rail-icon selected"><img src="assets/home.svg" data-active-src="assets/home.svg" data-inactive-src="assets/home-outline.svg" alt=""></span>
+            <span>Home</span>
+          </a>
+          <a class="rail-item" href="#sandbox" data-page="sandbox">
+            <span class="rail-icon"><img src="assets/sandbox.svg" data-active-src="assets/sandbox-selected.svg" data-inactive-src="assets/sandbox.svg" alt=""></span>
+            <span>Sandbox</span>
+          </a>
+          <a class="rail-item" href="#production" data-page="production">
+            <span class="rail-icon"><img src="assets/production.svg" data-active-src="assets/production-selected.svg" data-inactive-src="assets/production.svg" alt=""></span>
+            <span>Production</span>
+          </a>
+        </div>
+        <div class="rail-group rail-bottom">
+          <a class="rail-item" href="#learning" data-page="learning">
+            <span class="rail-icon"><img src="assets/learning.svg" data-active-src="assets/learning-selected.svg" data-inactive-src="assets/learning.svg" alt=""></span>
+            <span>Learning</span>
+          </a>
+          <div class="rail-divider"></div>
+          <a class="rail-item" href="#company" data-page="company">
+            <span class="rail-icon"><img class="partner-icon" src="assets/acme.svg" data-active-src="assets/acme.svg" data-inactive-src="assets/acme.svg" alt=""></span>
+            <span>ACME<br>Fitness</span>
+          </a>
+        </div>
+      </nav>
+
+      <nav class="sandbox-drawer" aria-label="Sandbox navigation" hidden>
+        <div class="sandbox-drawer-group">
+          <p class="sandbox-drawer-label">Sandbox</p>
+          <div class="sandbox-drawer-items">
+            <button type="button" class="sandbox-drawer-item" data-sandbox-section="Test environment" aria-current="page"><img src="assets/sandbox-environment.svg" alt=""><span>Test environment</span></button>
+            <button type="button" class="sandbox-drawer-item" data-sandbox-section="Acceptance tests"><img src="assets/sandbox-tests.svg" alt=""><span>Acceptance tests</span></button>
+            <button type="button" class="sandbox-drawer-item" data-sandbox-section="History"><img src="assets/sandbox-history.svg" alt=""><span>History</span></button>
+          </div>
+        </div>
+        <div class="sandbox-drawer-divider"></div>
+        <div class="sandbox-drawer-group">
+          <p class="sandbox-drawer-label">Resources</p>
+          <a class="sandbox-drawer-item" href="https://developer.egym.com/" target="_blank" rel="noopener noreferrer" aria-label="Documentation (opens in a new tab)"><img src="assets/sandbox-documentation.svg" alt=""><span>Documentation</span><img src="assets/sandbox-external.svg" alt=""></a>
+        </div>
+      </nav>
+
+      <main class="main">
+        <div id="screen-home" data-screen="home">
+        <section aria-labelledby="projects-heading">
+          <div class="section-heading">
+            <h1 id="projects-heading">Active projects</h1>
+          </div>
+
+          <article class="project-card">
+            <div class="project-header">
+              <div>
+                <h2>MMS: Member sync, RFID sync</h2>
+                <p class="contact">EGYM contact: <a class="inline-action" href="mailto:contact@example.com">contact@example.com <img src="assets/external.svg" alt=""></a></p>
+              </div>
+              <a class="text-action" href="#project">
+                Details <img src="assets/chevron.svg" alt="">
+              </a>
+            </div>
+
+            <div class="progress" aria-label="Project stage: Planning" data-prototype-content="planning">
+              <div class="progress-track" aria-hidden="true"><div class="progress-fill"></div></div>
+              <ol class="progress-labels">
+                <li aria-current="step">Planning</li>
+                <li>Development</li>
+                <li>Review</li>
+                <li>Pilot</li>
+                <li>Production</li>
+              </ol>
+            </div>
+            <div class="progress development-progress" aria-label="Project stage: Development" data-prototype-content="development" data-prototype-exclude="review pilot project-completed" hidden>
+              <div class="progress-track" aria-hidden="true"><div class="progress-fill"></div></div>
+              <ol class="progress-labels">
+                <li class="progress-completed"><img src="assets/check-green.svg" alt="">Planning</li>
+                <li aria-current="step">Development</li>
+                <li>Review</li>
+                <li>Pilot</li>
+                <li>Production</li>
+              </ol>
+            </div>
+            <div class="progress review-progress" aria-label="Project stage: Review" data-prototype-content="review" hidden>
+              <div class="progress-track" aria-hidden="true"><div class="progress-fill"></div></div>
+              <ol class="progress-labels">
+                <li class="progress-completed"><img src="assets/check-green.svg" alt="">Planning</li>
+                <li class="progress-completed"><img src="assets/check-green.svg" alt="">Development</li>
+                <li aria-current="step">Review</li>
+                <li>Pilot</li>
+                <li>Production</li>
+              </ol>
+            </div>
+            <div class="progress pilot-progress" aria-label="Project stage: Pilot" data-prototype-content="pilot" hidden>
+              <div class="progress-track" aria-hidden="true"><div class="progress-fill"></div></div>
+              <ol class="progress-labels">
+                <li class="progress-completed"><img src="assets/check-green.svg" alt="">Planning</li>
+                <li class="progress-completed"><img src="assets/check-green.svg" alt="">Development</li>
+                <li class="progress-completed"><img src="assets/check-green.svg" alt="">Review</li>
+                <li aria-current="step">Pilot</li>
+                <li>Production</li>
+              </ol>
+            </div>
+            <div class="progress completed-progress" aria-label="Project stage: Production" data-prototype-content="project-completed" hidden>
+              <div class="progress-track" aria-hidden="true"><div class="progress-fill"></div></div>
+              <ol class="progress-labels">
+                <li class="progress-completed"><img src="assets/check-green.svg" alt="">Planning</li>
+                <li class="progress-completed"><img src="assets/check-green.svg" alt="">Development</li>
+                <li class="progress-completed"><img src="assets/check-green.svg" alt="">Review</li>
+                <li class="progress-completed"><img src="assets/check-green.svg" alt="">Pilot</li>
+                <li aria-current="step">Production</li>
+              </ol>
+            </div>
+            <section class="guidance" aria-labelledby="guidance-heading" data-prototype-content="planning">
+              <div class="guidance-head">
+                <h2 id="guidance-heading">Share your target completion date to unlock development</h2>
+                <p>The date the integration is fully live in Production, after Development, Review and Pilot are complete.</p>
+              </div>
+              <div class="guidance-content">
+                <h3>How it works</h3>
+                <ol class="steps">
+                  <li>Review the learning material to help you estimate a realistic completion date.</li>
+                  <li>Share your targeted completion date with your EGYM contact.</li>
+                  <li>EGYM emails you the partnership agreement. Once signed, development can begin.</li>
+                </ol>
+                <div class="actions">
+                  <a class="pill pill-outline" href="#learning">
+                    Review Learning Material <img src="assets/chevron.svg" alt="">
+                  </a>
+                  <button class="pill pill-dark" type="button" aria-disabled="true">
+                    Share Target Date <img src="assets/external.svg" alt="">
+                  </button>
+                </div>
+              </div>
+              <p class="guidance-footer">Unsure about your date? <button class="help-action" type="button" aria-disabled="true">Email your EGYM contact.</button></p>
+            </section>
+            <section class="development-content" aria-labelledby="development-heading" data-prototype-content="development" data-prototype-exclude="review pilot project-completed" hidden>
+              <div class="development-alert">
+                <img src="assets/info-blue.svg" alt="">
+                <p>Complete the technical questionnaire and requirements checklist before submitting for review. EGYM checks both during the integration review.</p>
+                <a class="pill development-questionnaire" href="#unavailable" data-unavailable="true" aria-disabled="true">Open Questionnaire <img src="assets/external.svg" alt=""></a>
+              </div>
+              <div class="development-header">
+                <div>
+                  <div class="development-heading-row"><h2 id="development-heading">Development tasks</h2><span class="development-count">0 of 2 completed</span></div>
+                  <p>Complete both tasks before submitting for review.</p>
+                </div>
+                <button class="development-submit" type="button" disabled>Submit for Review</button>
+              </div>
+              <div class="development-tasks">
+                <button class="development-task open-acceptance-tests" type="button">
+                  <span class="task-indicator" aria-hidden="true"></span>
+                  <span class="task-text"><span class="task-title">Run acceptance tests</span><span class="task-description">Test your integration end-to-end before going live.</span></span>
+                  <span class="task-arrow"><img src="assets/chevron.svg" alt=""></span>
+                </button>
+                <a class="development-task open-documentation" href="#documentation">
+                  <span class="task-indicator" aria-hidden="true"></span>
+                  <span class="task-text"><span class="task-title">Submit online documentation</span><span class="task-description">Share your online documentation to help the EGYM team support you.</span></span>
+                  <span class="task-arrow"><img src="assets/chevron.svg" alt=""></span>
+                </a>
+              </div>
+            </section>
+            <section class="review-content" aria-labelledby="submission-summary-heading" data-prototype-content="review" hidden>
+              <div class="review-notice"><img src="assets/info-blue.svg" alt=""><p>EGYM team is reviewing your submission. We’ll notify you once the review is complete.</p></div>
+              <div class="submission-summary">
+                <h2 id="submission-summary-heading" tabindex="-1">Submission summary</h2>
+                <p>Submitted Aug 28, 2026</p>
+                <ul>
+                  <li><span>Acceptance tests completed</span><a class="text-action review-tests" href="#sandbox">View Tests <img src="assets/chevron.svg" alt=""></a></li>
+                  <li><span>Online documentation submitted</span><a class="text-action" href="#documentation">View Documentation <img src="assets/chevron.svg" alt=""></a></li>
+                  <li><span>Technical questionnaire attached</span><a class="text-action" href="#unavailable" data-unavailable="true" aria-disabled="true">Questionnaire unavailable <img src="assets/external.svg" alt=""></a></li>
+                </ul>
+              </div>
+            </section>
+            <section class="pilot-content" aria-labelledby="pilot-tasks-heading" data-prototype-content="pilot" hidden>
+              <div class="pilot-notice">
+                <div>
+                  <p><strong>Your integration is in the pilot phase.</strong> Onboard every pilot site to confirm the integration works as intended before rollout.</p>
+                  <p class="pilot-sites"><strong>Pilot sites:</strong> BestGym Stuttgart, BestGym Munich, BestGym Stuttgart West, BestGym Frankfurt, BestGym Berlin, BestGym Friedrichshafen, BestGym Munich Schwabing, BestGym Hamburg.</p>
+                </div>
+                <div class="pilot-notice-actions">
+                  <button class="pill pill-outline" type="button" aria-disabled="true">Pilot Phase Details <img src="assets/chevron.svg" alt=""></button>
+                  <a class="pill pill-dark" href="#production">View Pilot Sites <img src="assets/chevron.svg" alt=""></a>
+                </div>
+              </div>
+              <div class="pilot-tasks-heading">
+                <div class="development-heading-row"><h2 id="pilot-tasks-heading">Pilot tasks</h2><span class="development-count">0 of 1 completed</span></div>
+                <p>You can complete this task at any time during the pilot.</p>
+              </div>
+              <a class="development-task" href="#rollout">
+                <span class="task-indicator" aria-hidden="true"></span>
+                <span class="task-text"><span class="task-title">Review and accept rollout procedure</span><span class="task-description">Agree how new gyms get connected so that rollout can be finalized.</span></span>
+                <span class="task-arrow"><img src="assets/chevron.svg" alt=""></span>
+              </a>
+            </section>
+            <section class="completed-content" data-prototype-content="project-completed" hidden>
+              <div class="completed-notice">
+                <img src="assets/doc-link-success.svg" alt="">
+                <p><strong>Project completed!</strong> You can view your connected locations in the Production section.</p>
+                <a class="pill pill-outline" href="#production">Go to Production <img src="assets/chevron.svg" alt=""></a>
+              </div>
+            </section>
+          </article>
+        </section>
+
+        <section class="quick-links" aria-labelledby="quick-links-heading">
+          <h2 id="quick-links-heading">Quick links</h2>
+          <div class="quick-cards">
+            <a class="quick-card" href="https://developer.egym.com/" target="_blank" rel="noopener noreferrer" aria-label="API documentation (opens in a new tab)">
+              <span class="quick-title">API documentation <img src="assets/chevron.svg" alt=""></span>
+              <span class="quick-description">Find detailed answers about setup, features, and troubleshooting.</span>
+            </a>
+            <a class="quick-card" href="#sandbox" data-prototype-content="development" hidden>
+              <span class="quick-title">Explore your sandbox <img src="assets/chevron.svg" alt=""></span>
+              <span class="quick-description">Use test data to safely experiment and verify your setup in the sandbox.</span>
+            </a>
+            <button class="quick-card" type="button" aria-disabled="true" data-prototype-content="development" hidden>
+              <span class="quick-title">Get help <img src="assets/chevron.svg" alt=""></span>
+              <span class="quick-description">Ask the EGYM integration team.</span>
+            </button>
+          </div>
+        </section>
+        </div>
+        <section class="empty-state" id="screen-sandbox" data-screen="sandbox" aria-label="Sandbox" hidden>
+          <img src="assets/sandbox-empty.svg" alt="" data-prototype-content="planning">
+          <div class="empty-message" data-prototype-content="planning">
+            <h1 id="sandbox-heading">Unlock your sandbox</h1>
+            <p>Once your partnership agreement is signed, you can test your integration here.</p>
+          </div>
+          <div class="sandbox-development" data-prototype-content="development" hidden>
+            <div class="sandbox-environment">
+              <header class="company-heading">
+                <h1>Test environment</h1>
+                <p>Use test data to safely experiment and verify your setup in the sandbox before going live.</p>
+              </header>
+              <div class="sandbox-tabs" role="tablist" aria-label="Test environment">
+                <button type="button" role="tab" id="locations-tab" aria-controls="locations-panel" aria-selected="true" tabindex="0">Test locations</button>
+                <button type="button" role="tab" id="accounts-tab" aria-controls="accounts-panel" aria-selected="false" tabindex="-1">Test accounts</button>
+                <button type="button" role="tab" id="sandbox-details-tab" aria-controls="sandbox-details-panel" aria-selected="false" tabindex="-1">Sandbox details</button>
+              </div>
+              <section class="sandbox-tab-panel" id="locations-panel" role="tabpanel" aria-labelledby="locations-tab" tabindex="0">
+                <h2>Test locations</h2>
+                <div class="sandbox-table-wrap" tabindex="0" role="region" aria-label="Test locations table">
+                  <table class="sandbox-table locations-table">
+                    <thead><tr><th>EGYM ID</th><th>Chain</th><th>Location name</th><th>Address</th><th>API status</th><th>API key</th><th aria-label="Actions"></th></tr></thead>
+                    <tbody>
+                      <tr data-location-id="9000000001" data-location-chain="BestGym" data-location-name="BestGym Bodensee" data-location-address="123 Example Road, Example City">
+                        <td>9000000001</td><td>BestGym</td><td>BestGym Bodensee</td><td>123 Example Road,<br>Example City</td><td><span class="sandbox-status active">Active</span></td>
+                        <td><div class="sandbox-key" data-mock-key="egym_100_demo_9000000001_not_a_real_key"><span class="sandbox-key-value">egym_100•••••••••••••••••••••••••••••••</span><button class="sandbox-icon-button toggle-mock-key" type="button" aria-label="Show mock API key for BestGym Bodensee" aria-pressed="false"><img src="assets/view.svg" alt=""></button><button class="sandbox-icon-button copy-mock-key" type="button" aria-label="Copy mock API key for BestGym Bodensee"><img src="assets/copy.svg" alt=""></button></div></td>
+                        <td><button class="sandbox-details-action" type="button">Details <img src="assets/chevron.svg" alt=""></button></td>
+                      </tr>
+                      <tr data-location-id="9000000002" data-location-chain="GymFit" data-location-name="GymFit Stuttgart" data-location-address="123 Example Street, Example City">
+                        <td>9000000002</td><td>GymFit</td><td>GymFit Stuttgart</td><td>123 Example Street,<br>Example City</td><td><span class="sandbox-status active">Active</span></td>
+                        <td><div class="sandbox-key" data-mock-key="egym_100_demo_9000000002_not_a_real_key"><span class="sandbox-key-value">egym_100•••••••••••••••••••••••••••••••</span><button class="sandbox-icon-button toggle-mock-key" type="button" aria-label="Show mock API key for GymFit Stuttgart" aria-pressed="false"><img src="assets/view.svg" alt=""></button><button class="sandbox-icon-button copy-mock-key" type="button" aria-label="Copy mock API key for GymFit Stuttgart"><img src="assets/copy.svg" alt=""></button></div></td>
+                        <td><button class="sandbox-details-action" type="button">Details <img src="assets/chevron.svg" alt=""></button></td>
+                      </tr>
+                      <tr data-location-id="9000000003" data-location-chain="BestGym" data-location-name="BestGym Munich" data-location-address="789 Example Avenue, Example City">
+                        <td>9000000003</td><td>BestGym</td><td>BestGym Munich</td><td>789 Example Avenue,<br>Example City</td><td><span class="sandbox-status active">Active</span></td>
+                        <td><div class="sandbox-key" data-mock-key="egym_100_demo_9000000003_not_a_real_key"><span class="sandbox-key-value">egym_100•••••••••••••••••••••••••••••••</span><button class="sandbox-icon-button toggle-mock-key" type="button" aria-label="Show mock API key for BestGym Munich" aria-pressed="false"><img src="assets/view.svg" alt=""></button><button class="sandbox-icon-button copy-mock-key" type="button" aria-label="Copy mock API key for BestGym Munich"><img src="assets/copy.svg" alt=""></button></div></td>
+                        <td><button class="sandbox-details-action" type="button">Details <img src="assets/chevron.svg" alt=""></button></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </section>
+              <section class="sandbox-tab-panel" id="accounts-panel" role="tabpanel" aria-labelledby="accounts-tab" tabindex="0" hidden>
+                <div class="sandbox-table-section">
+                  <h2>EGYM accounts</h2>
+                  <div class="sandbox-table-wrap" tabindex="0" role="region" aria-label="EGYM accounts table">
+                    <table class="sandbox-table accounts-table">
+                      <thead><tr><th>Account ID</th><th>Email</th><th>First name</th><th>Last name</th><th>Membership type</th><th>Start date</th><th>End date</th></tr></thead>
+                      <tbody>
+                        <tr><td>demo-account-001</td><td>member1@example.com</td><td>Sample</td><td>Member 1</td><td>n/a</td><td>n/a</td><td>n/a</td></tr>
+                        <tr><td>demo-account-002</td><td>member2@example.com</td><td>Sample</td><td>Member 2</td><td>n/a</td><td>n/a</td><td>n/a</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="sandbox-table-section">
+                  <h2>EGYM accounts with Wellpas Membership</h2>
+                  <div class="sandbox-table-wrap" tabindex="0" role="region" aria-label="EGYM accounts with Wellpass membership table">
+                    <table class="sandbox-table accounts-table membership-table">
+                      <thead><tr><th>Account ID</th><th>Email</th><th>First name</th><th>Last name</th><th>Membership type</th><th>Start date</th><th>End date</th><th>Status</th><th>Current Tan</th></tr></thead>
+                      <tbody>
+                        <tr><td>demo-account-003</td><td>member3@example.com</td><td>Sample</td><td>Member 3</td><td>Corporate fitness</td><td>2023-01-15</td><td>2027-01-15</td><td><span class="sandbox-status active">Active</span></td><td>MOCK-TAN-1</td></tr>
+                        <tr><td>demo-account-004</td><td>member4@example.com</td><td>Sample</td><td>Member 4</td><td>Corporate fitness</td><td>2021-06-01</td><td>2023-06-01</td><td><span class="sandbox-status expired">Expired</span></td><td>MOCK-TAN-2</td></tr>
+                        <tr><td>demo-account-005</td><td>member5@example.com</td><td>Sample</td><td>Member 5</td><td>Corporate fitness</td><td>2022-03-10</td><td>2026-03-15</td><td><span class="sandbox-status inactive">Inactive</span></td><td>MOCK-TAN-3</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </section>
+              <section class="sandbox-tab-panel" id="sandbox-details-panel" role="tabpanel" aria-labelledby="sandbox-details-tab" tabindex="0" hidden>
+                <h2>API information</h2>
+                <div class="sandbox-information">
+                  <div><span class="sandbox-field-label">Base URL</span><div class="sandbox-copy-line"><span data-copy-value>https://api.example.invalid/v2</span><button class="sandbox-icon-button copy-value" type="button" aria-label="Copy base URL"><img src="assets/copy.svg" alt=""></button></div></div>
+                  <div><span class="sandbox-field-label">Rate limits</span><div class="sandbox-copy-line"><span data-copy-value>10 requests/second</span><button class="sandbox-icon-button copy-value" type="button" aria-label="Copy rate limit"><img src="assets/copy.svg" alt=""></button></div></div>
+                </div>
+                <div class="sandbox-reset"><p>Restore initial test data and clear custom test accounts, locations, and active API keys.</p><button type="button" class="sandbox-reset-button" aria-disabled="true" title="Reset is not available in this prototype"><span aria-hidden="true">⟳</span> Reset sandbox</button></div>
+              </section>
+            </div>
+            <section class="acceptance-tests" aria-labelledby="acceptance-heading" hidden>
+              <header class="acceptance-intro company-heading">
+                <h1 id="acceptance-heading">Acceptance tests</h1>
+                <p data-prototype-content="development" data-prototype-exclude="review">Ready to test your integration project? Send API calls from your software to see your results update here automatically.<br>To repeat a completed test, select Retest below first.</p>
+                <p data-prototype-content="review" hidden>Review the results of your acceptance tests.</p>
+                <div class="acceptance-alert" data-prototype-content="development" data-prototype-exclude="review">
+                  <img src="assets/info-blue.svg" alt="">
+                  <p>Change your baseURL before testing to <span>https://api.example.invalid/v2</span>.</p>
+                  <button class="acceptance-copy" type="button"><img src="assets/acceptance-copy.svg" alt="">Copy</button>
+                </div>
+                <div class="acceptance-alert review-acceptance-alert" data-prototype-content="review" hidden>
+                  <img src="assets/info-blue.svg" alt="">
+                  <p>Your implementation is under review by the EGYM team. Testing is unavailable during the review.</p>
+                </div>
+              </header>
+              <section class="acceptance-progress" aria-labelledby="acceptance-progress-heading">
+                <div class="acceptance-progress-heading"><h2 id="acceptance-progress-heading">Testing progress</h2><span class="acceptance-progress-count">2 of 16 passed</span></div>
+                <div class="acceptance-progress-track" role="progressbar" aria-label="Tests passed" aria-valuemin="0" aria-valuemax="16" aria-valuenow="2"><div class="acceptance-progress-fill"></div></div>
+                <p>Currently tested project: <strong><span data-prototype-content="development" data-prototype-exclude="review">MMS: Member sync, RFID sync</span><span data-prototype-content="review" hidden>MMS API Integration</span></strong></p>
+              </section>
+              <section class="acceptance-group" data-test-group="member" aria-labelledby="member-tests-heading">
+                <div class="acceptance-group-heading"><h2 id="member-tests-heading">Member sync</h2><span class="acceptance-group-count">1 of 12 passed</span></div>
+                <div class="sandbox-table-wrap" role="region" aria-label="Member sync tests" tabindex="0">
+                  <table class="acceptance-table"><thead><tr><th>Test case</th><th>Status</th><th colspan="2">Actions</th></tr></thead><tbody></tbody></table>
+                </div>
+              </section>
+              <section class="acceptance-group" data-test-group="rfid" aria-labelledby="rfid-tests-heading">
+                <div class="acceptance-group-heading"><h2 id="rfid-tests-heading">RFID sync</h2><span class="acceptance-group-count">1 of 4 passed</span></div>
+                <div class="sandbox-table-wrap" role="region" aria-label="RFID sync tests" tabindex="0">
+                  <table class="acceptance-table"><thead><tr><th>Test case</th><th>Status</th><th colspan="2">Actions</th></tr></thead><tbody></tbody></table>
+                </div>
+              </section>
+            </section>
+            <section class="empty-state pilot-acceptance-empty" aria-labelledby="pilot-acceptance-heading" hidden>
+              <img src="assets/sandbox-tests.svg" alt="">
+              <div class="empty-message">
+                <h1 id="pilot-acceptance-heading">No active projects</h1>
+                <p>There's nothing to test yet as there is no active project.<br>You can keep using the test environment in the meantime.</p>
+              </div>
+              <button class="history-cta pilot-test-environment" type="button">Go to Test Environment</button>
+            </section>
+            <section class="empty-state sandbox-section-placeholder" aria-labelledby="history-heading" hidden>
+              <img src="assets/sandbox-history.svg" alt="">
+              <div class="empty-message history-message">
+                <h1 id="history-heading">No recorded history yet</h1>
+                <p>After your integration moves to the pilot phase, the history of your past acceptance tests will show up here.</p>
+              </div>
+            </section>
+            <section class="pilot-history" aria-labelledby="pilot-history-heading" hidden>
+              <header class="company-heading">
+                <h1 id="pilot-history-heading">History</h1>
+                <p>View all your acceptance test activity.</p>
+              </header>
+              <div class="sandbox-table-wrap" role="region" aria-label="Acceptance test history" tabindex="0">
+                <table class="pilot-history-table">
+                  <thead><tr><th>Date</th><th>Project</th><th>API scope</th><th>Test case</th><th>Result</th><th><span class="sr-only">Details</span></th></tr></thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+            </section>
+          </div>
+        </section>
+        <div id="screen-production" data-screen="production" hidden>
+          <section class="empty-state production-empty" aria-labelledby="production-heading">
+            <img src="assets/production-empty.svg" alt="">
+            <div class="empty-message">
+              <h1 id="production-heading">No live locations yet</h1>
+              <p>Production unlocks once your locations go live</p>
+            </div>
+          </section>
+          <div class="production-overview" hidden>
+            <header class="company-heading">
+              <h1>Production overview</h1>
+              <p>Monitor and manage the ACME Fitness live integrations.</p>
+            </header>
+            <div class="production-notice" data-prototype-content="pilot" hidden><img src="assets/info-blue.svg" alt=""><p>MMS API Integration project is in the Pilot phase. Onboard every pilot site to confirm the integration works as intended before rollout.</p></div>
+            <section aria-labelledby="production-insights-heading">
+              <h2 id="production-insights-heading">API performance insights</h2>
+              <div class="production-insights">
+                <article class="production-insight"><div><p>Overall success rate</p><strong>99.2%</strong><small class="positive">▲ 0.3% vs last week</small></div><img src="assets/production-sparkline.svg" alt=""></article>
+                <article class="production-insight"><div><p>Failed calls (24h)</p><strong>128</strong><small class="negative">▲ 12 vs yesterday</small></div><img src="assets/production-sparkline.svg" alt=""></article>
+                <article class="production-insight"><div><p>Error rate</p><strong>0.8%</strong><small class="positive">▼ 0.2% vs last week</small></div><img src="assets/production-sparkline.svg" alt=""></article>
+              </div>
+            </section>
+            <section class="production-locations" aria-labelledby="production-locations-heading">
+              <div class="production-locations-heading">
+                <div><h2 id="production-locations-heading">All connected locations</h2><p class="production-location-count" aria-live="polite">10 locations and 1 chain</p></div>
+                <label class="production-search"><img src="assets/search.svg" alt=""><span class="sr-only">Search locations</span><input type="search" placeholder="Search" aria-label="Search locations"></label>
+              </div>
+              <div class="sandbox-table-wrap" role="region" aria-label="Connected locations" tabindex="0">
+                <table class="production-table">
+                  <thead><tr><th>ID</th><th>Chain name</th><th>Location name</th><th>Success rate</th><th>API status</th><th>Last used</th><th>API key</th></tr></thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+              <p class="production-no-results" hidden>No locations found.</p>
+            </section>
+          </div>
+        </div>
+        <div class="production-location" id="screen-production-location" data-screen="production-location" hidden>
+          <header class="production-location-heading">
+            <a class="text-action project-back" href="#production"><img src="assets/chevron.svg" alt="">Back to Production</a>
+            <div class="company-heading">
+              <h1 id="production-location-title"></h1>
+              <p>ID: <span data-production-field="id"></span> · Chain: <span data-production-field="chain"></span><span class="production-address"> · Address: 123 Example Street, Example City</span></p>
+            </div>
+          </header>
+          <div class="sandbox-tabs production-tabs" role="tablist" aria-label="Location details">
+            <button type="button" role="tab" id="production-api-tab" aria-controls="production-api-panel" aria-selected="true" tabindex="0">API details</button>
+            <button type="button" role="tab" id="production-booking-tab" aria-controls="production-booking-panel" aria-selected="false" tabindex="-1">Product booking</button>
+          </div>
+          <section id="production-api-panel" role="tabpanel" aria-labelledby="production-api-tab" tabindex="0">
+            <div class="production-detail-example">
+              <div class="production-detail-grid">
+                <section class="production-detail-card production-performance">
+                  <div class="production-performance-heading"><div><h2>API performance summary</h2><p>Based on API calls with location’s API key for the last 1d with 1h update interval (granularity).</p></div><button class="production-period" type="button" aria-disabled="true">Last 24h <span aria-hidden="true">⌄</span></button></div>
+                  <div class="production-stats"><div><span>Total API Calls</span><strong>5583</strong></div><div><span>Successful Calls</span><strong class="positive">4078</strong></div><div><span>Failed Calls</span><strong class="negative">1505</strong></div><div><span>API success rate</span><strong class="warning">73%</strong></div></div>
+                  <img class="production-chart" src="assets/production-chart.svg" alt="Mock API success rate over 24 hours, ranging from 0% to 100%.">
+                  <h3>Failed calls details</h3>
+                  <div class="production-errors-wrap"><table class="production-errors"><thead><tr><th>COUNT</th><th>API</th><th>ERROR CODE</th><th>ERROR MESSAGE</th></tr></thead><tbody><tr><td>1503</td><td>GET /accounts</td><td>404</td><td>notFound: MEMBERSHIP</td></tr><tr><td>2</td><td>POST /accounts</td><td>409</td><td>membershipExists</td></tr></tbody></table></div>
+                </section>
+                <aside class="production-detail-side">
+                  <section class="production-detail-card">
+                    <h2>API details</h2>
+                    <dl class="production-fields">
+                      <div><dt>API state</dt><dd><span class="sandbox-status active">Active</span></dd></div>
+                      <div><dt>API key</dt><dd><div class="sandbox-key production-detail-key" data-mock-key="egym_100_demo_9000000002_not_a_real_key"><span class="sandbox-key-value">egym_100•••••••••••••••••••••••••••••••</span><button class="sandbox-icon-button toggle-mock-key" type="button" aria-label="Show mock API key" aria-pressed="false"><img src="assets/view.svg" alt=""></button><button class="sandbox-icon-button copy-mock-key" type="button" aria-label="Copy mock API key"><img src="assets/copy.svg" alt=""></button></div></dd></div>
+                      <div><dt>Last used at</dt><dd>3.12.2026</dd></div><div><dt>Expiry date</dt><dd>30.09.2026</dd></div><div><dt>API version</dt><dd>V2</dd></div>
+                    </dl>
+                  </section>
+                  <section class="production-detail-card">
+                    <h2>API permissions</h2>
+                    <dl class="production-fields"><div><dt>Sync EGYM members</dt><dd class="positive">● True</dd></div><div><dt>Sync Wellpass members</dt><dd class="positive">● True</dd></div><div><dt>Sync RFID</dt><dd class="positive">● True</dd></div><div><dt>Reverse RFID</dt><dd class="muted">● False</dd></div><div><dt>Send push notifications</dt><dd class="muted">● False</dd></div></dl>
+                  </section>
+                </aside>
+              </div>
+            </div>
+          </section>
+          <section id="production-booking-panel" role="tabpanel" aria-labelledby="production-booking-tab" tabindex="0" hidden>
+            <div class="production-booking-example">
+              <div class="production-booking-grid">
+                <section class="production-detail-card"><h2>Machine Admission</h2><dl class="production-fields"><div><dt>Product ID</dt><dd>00000000-0000-4000-8000-000000000001</dd></div><div><dt>Scope</dt><dd>LOCATION</dd></div><div><dt>Description</dt><dd>Example product configuration</dd></div></dl></section>
+                <section class="production-detail-card"><h2>EGYM+</h2><dl class="production-fields"><div><dt>Product ID</dt><dd>00000000-0000-4000-8000-000000000002</dd></div><div><dt>Scope</dt><dd>LOCATION</dd></div><div><dt>Description</dt><dd>Example product configuration</dd></div></dl></section>
+                <section class="production-detail-card"><h2>Configurations</h2><dl class="production-fields"><div><dt>Welcome email</dt><dd>Standard</dd></div></dl></section>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div class="company-page" id="screen-company" data-screen="company" hidden>
+          <header class="company-heading">
+            <h1>ACME Fitness</h1>
+            <p>View your projects and manage your company information you share with EGYM.</p>
+          </header>
+
+          <section class="company-section" aria-labelledby="company-projects-heading">
+            <h2 id="company-projects-heading">Projects</h2>
+            <a class="company-card company-project" href="#project">
+              <span class="company-card-text">
+                <span class="company-card-title">MMS: Member sync, RFID sync</span>
+                <span class="company-phase">Current phase: <strong data-prototype-content="planning">Planning</strong><strong data-prototype-content="development" data-prototype-exclude="review pilot project-completed" hidden>Development</strong><strong data-prototype-content="review" hidden>Review</strong><strong data-prototype-content="pilot" hidden>Pilot</strong><strong data-prototype-content="project-completed" hidden>Production</strong></span>
+              </span>
+              <span class="company-project-arrow"><img src="assets/chevron.svg" alt=""></span>
+            </a>
+          </section>
+
+          <section class="company-section" aria-labelledby="integration-setup-heading">
+            <div class="company-section-heading">
+              <h2 id="integration-setup-heading">Integration setup</h2>
+              <p>Shared across projects</p>
+            </div>
+            <div class="company-cards">
+              <div class="company-card">
+                <div class="company-card-text">
+                  <p class="company-card-title">Technical questionnaire</p>
+                  <p class="company-card-description">Share your technical setup and support needs.</p>
+                </div>
+                <a class="pill pill-outline" href="#unavailable" data-unavailable="true" aria-disabled="true">
+                  Open questionnaire <img src="assets/external.svg" alt="">
+                </a>
+              </div>
+              <a class="company-card" href="#documentation">
+                <span class="company-card-text">
+                  <span class="company-card-title">Documentation</span>
+                  <span class="company-card-description">Internal documentation about your systems.</span>
+                </span>
+                <img src="assets/chevron.svg" alt="">
+              </a>
+              <a class="company-card" href="#rollout">
+                <span class="company-card-text">
+                  <span class="company-card-title">Rollout procedure</span>
+                  <span class="company-card-description">How new gym locations go live after the pilot.</span>
+                </span>
+                <img src="assets/chevron.svg" alt="">
+              </a>
+            </div>
+          </section>
+
+          <section class="company-section" aria-labelledby="organization-heading">
+            <h2 id="organization-heading">Organization details</h2>
+            <dl class="organization-details">
+              <div><dt>Company</dt><dd>ACME Fitness</dd></div>
+              <div><dt>Partner type</dt><dd>MMS partner</dd></div>
+              <div><dt>Account ID</dt><dd>ACC-10482</dd></div>
+              <div><dt>Partner since</dt><dd>January 2026</dd></div>
+            </dl>
+          </section>
+        </div>
+        <div class="rollout-page" id="screen-rollout" data-screen="rollout" hidden>
+          <header class="rollout-heading">
+            <a class="text-action project-back" href="#company"><img src="assets/chevron.svg" alt="">Back</a>
+            <div class="company-heading">
+              <h1>Rollout procedure</h1>
+              <p>Details how new gym locations will be activated after the pilot. Review and accept the procedure. You may propose changes if your rollout differs.</p>
+            </div>
+          </header>
+          <section class="rollout-section" aria-labelledby="rollout-steps-heading">
+            <div class="rollout-section-heading">
+              <h2 id="rollout-steps-heading">Standard rollout steps</h2>
+              <span>EGYM standard</span>
+            </div>
+            <details class="rollout-steps" open>
+              <summary>Partner service <span aria-hidden="true">▾</span></summary>
+              <ol><li>Contact the integration team.</li><li>Review your configuration.</li><li>Test the integration before launch.</li></ol>
+            </details>
+          </section>
+          <div class="rollout-action-bar">
+            <p class="rollout-feedback" role="status" aria-live="polite"></p>
+            <div class="rollout-actions">
+              <button class="rollout-suggest" type="button">Suggest Changes <img src="assets/external.svg" alt=""></button>
+              <button class="rollout-confirm" type="button">Confirm Rollout Procedure</button>
+            </div>
+          </div>
+        </div>
+        <div class="documentation-page" id="screen-documentation" data-screen="documentation" hidden>
+          <header class="documentation-heading">
+            <a class="text-action project-back documentation-back" href="#company"><img src="assets/chevron.svg" alt="">Back</a>
+            <div class="company-heading">
+              <h1>Documentation</h1>
+              <p>Share your online documentation to help our team support you. Keep static files as supporting materials only.</p>
+            </div>
+          </header>
+          <section class="documentation-card" aria-label="Add documentation">
+            <div class="documentation-tabs" role="tablist" aria-label="Documentation type">
+              <button type="button" role="tab" id="documentation-link-tab" aria-controls="documentation-link-panel" aria-selected="true" tabindex="0">Add link (recommended)</button>
+              <button type="button" role="tab" id="documentation-file-tab" aria-controls="documentation-file-panel" aria-selected="false" tabindex="-1">Upload file</button>
+            </div>
+            <section id="documentation-link-panel" role="tabpanel" aria-labelledby="documentation-link-tab">
+              <form class="documentation-link-form">
+                <label for="documentation-url">Add a link to your online documentation</label>
+                <div class="documentation-link-row">
+                  <input id="documentation-url" type="url" placeholder="Enter your documentation link" required>
+                  <button class="documentation-add" type="submit"><img src="assets/documentation-add.svg" alt="">Add link</button>
+                </div>
+              </form>
+            </section>
+            <section id="documentation-file-panel" role="tabpanel" aria-labelledby="documentation-file-tab" hidden>
+              <p class="documentation-file-label">Upload a file</p>
+              <div class="documentation-dropzone">
+                <span class="documentation-upload-icon"><img src="assets/documentation-upload.svg" alt=""></span>
+                <div><p>Drag &amp; drop your file here</p><p class="documentation-file-hint">Videos, images or text files · up to 500 MB</p></div>
+                <button type="button" class="documentation-browse">Browse files</button>
+                <input class="documentation-file-input" type="file" accept="video/*,image/*,text/*" aria-label="Choose documentation file" hidden>
+              </div>
+              <p class="documentation-file-selection" hidden></p>
+            </section>
+            <p class="documentation-feedback" role="status" aria-live="polite"></p>
+          </section>
+          <section class="documentation-items" aria-labelledby="documentation-items-heading" hidden>
+            <div class="documentation-items-heading"><h2 id="documentation-items-heading">Your documentation</h2><span class="documentation-items-count"></span></div>
+            <ul class="documentation-staged-links" aria-label="Documentation links">
+              <li class="documentation-item" data-prototype-content="post-development" hidden>
+                <span class="documentation-item-icon"><img src="assets/doc-link-icon.svg" alt=""></span>
+                <div class="documentation-item-content">
+                  <a class="documentation-item-link" href="https://example.com/" target="_blank" rel="noopener noreferrer" aria-label="Example documentation link (opens in a new tab)"><span>example.com</span><img src="assets/doc-link-external.svg" alt=""></a>
+                  <p class="documentation-item-meta">Example submitted link · 28 Aug 2026 · Prototype only</p>
+                </div>
+                <div class="documentation-item-actions">
+                  <a class="documentation-item-open" href="https://example.com/" target="_blank" rel="noopener noreferrer" aria-label="Open example documentation link in a new tab"><img src="assets/doc-link-open.svg" alt="">Open</a>
+                  <button type="button" class="documentation-item-remove" aria-label="Remove example documentation link"><img src="assets/doc-link-remove.svg" alt="">Remove</button>
+                </div>
+              </li>
+            </ul>
+          </section>
+          <div class="documentation-toast" role="status" aria-live="polite" hidden>
+            <img src="assets/doc-link-success.svg" alt=""><span></span>
+          </div>
+        </div>
+        <div class="learning-page" id="screen-learning" data-screen="learning" hidden>
+          <header class="company-heading">
+            <h1>Learning</h1>
+            <p>Access all your guides, API references, and integration resources in one place.</p>
+          </header>
+          <div class="learning-search" role="search">
+            <label for="learning-search"><img src="assets/search.svg" alt=""></label>
+            <input id="learning-search" type="search" placeholder="Search" aria-label="Search learning materials" autocomplete="off">
+            <button class="learning-search-clear" type="button" aria-label="Clear search" hidden><img src="assets/search-clear.svg" alt=""></button>
+          </div>
+          <div class="learning-results">
+            <div class="learning-filters" aria-label="Filter learning materials">
+              <button class="learning-filter" type="button" data-learning-filter="All" aria-pressed="false">All <span>(13)</span></button>
+              <button class="learning-filter" type="button" data-learning-filter="In scope" aria-pressed="true">In scope <span>(9)</span></button>
+              <button class="learning-filter" type="button" data-learning-filter="General" aria-pressed="false">General <span>(2)</span></button>
+              <button class="learning-filter" type="button" data-learning-filter="Membership sync" aria-pressed="false">Membership sync <span>(6)</span></button>
+              <button class="learning-filter" type="button" data-learning-filter="RFID sync" aria-pressed="false">RFID sync <span>(1)</span></button>
+              <button class="learning-filter" type="button" data-learning-filter="Checkin sync" aria-pressed="false">Checkin sync <span>(1)</span></button>
+              <button class="learning-filter" type="button" data-learning-filter="Product booking" aria-pressed="false">Product booking <span>(1)</span></button>
+              <button class="learning-filter" type="button" data-learning-filter="Wellpass admission" aria-pressed="false">Wellpass admission <span>(3)</span></button>
+            </div>
+            <div class="learning-grid">
+              <a class="learning-card" href="#learning-detail/egym-account-concept" data-slides="4,13,14,37,40"><h2>EGYM account concept</h2><p>How EGYM accounts work and why they matter for a clean member sync.</p><div class="learning-tags"><span>In scope</span><span>Membership sync</span><span>Wellpass admission</span></div></a>
+              <a class="learning-card" href="#learning-detail/data-privacy-framework" data-slides="14,39"><h2>Data privacy framework</h2><p>What member data you may process, store and share — and how consent is handled.</p><div class="learning-tags"><span>In scope</span><span>General</span></div></a>
+              <a class="learning-card" href="#learning-detail/mms-api-intro" data-slides="1,2,7,8,9,10,35,36,37,38"><h2>MMS API intro</h2><p>Overview of the MMS API: authentication, environments, endpoints and conventions.</p><div class="learning-tags"><span>In scope</span><span>Membership sync</span></div></a>
+              <a class="learning-card" href="#learning-detail/member-setup" data-slides="13,14,37,39,40,41"><h2>Member setup</h2><p>How to create a member in EGYM: required fields, identifiers and validation rules.</p><div class="learning-tags"><span>In scope</span><span>Membership sync</span></div></a>
+              <a class="learning-card" href="#learning-detail/account-update" data-slides="39,40"><h2>Account update</h2><p>Keeping member data in sync when details, status or membership change on your side.</p><div class="learning-tags"><span>In scope</span><span>Membership sync</span></div></a>
+              <a class="learning-card" href="#learning-detail/account-delete" data-slides="39"><h2>Account delete</h2><p>When and how to remove a member, and what happens to their data and devices.</p><div class="learning-tags"><span>In scope</span><span>Membership sync</span></div></a>
+              <a class="learning-card" href="#learning-detail/conflict-resolution" data-slides="39,40"><h2>Conflict resolution</h2><p>What to do when a member already exists in EGYM or data on both sides doesn't match.</p><div class="learning-tags"><span>In scope</span><span>Membership sync</span></div></a>
+              <a class="learning-card" href="#learning-detail/rfid-sync" data-slides="17,18"><h2>RFID sync</h2><p>Linking RFID cards and wristbands to member accounts so they work on EGYM equipment.</p><div class="learning-tags"><span>In scope</span><span>RFID sync</span></div></a>
+              <a class="learning-card" href="#learning-detail/check-in-check-out" data-slides="17,19,30,42,43" hidden><h2>Check-in / check-out</h2><p>Sending gym visits to EGYM so training sessions are attributed to the right member.</p><div class="learning-tags"><span>Checkin sync</span></div></a>
+              <a class="learning-card" href="#learning-detail/product-booking" data-slides="20,21,44,45,46,47,48,49,50,51,52" hidden><h2>Product booking</h2><p>Booking EGYM products and services for members through your system.</p><div class="learning-tags"><span>Product booking</span></div></a>
+              <a class="learning-card" href="#learning-detail/wellpass-member-onboarding" data-slides="32,33" hidden><h2>Wellpass member onboarding</h2><p>How Wellpass members are created and matched to accounts in your system.</p><div class="learning-tags"><span>Wellpass admission</span></div></a>
+              <a class="learning-card" href="#learning-detail/wellpass-admission" data-slides="32,34" hidden><h2>Wellpass admission</h2><p>Validating Wellpass check-ins at the door and reporting visits back to Wellpass.</p><div class="learning-tags"><span>Wellpass admission</span></div></a>
+              <a class="learning-card" href="#learning-detail/post-development" data-slides="38,41"><h2>Post-development</h2><p>What happens after you build: review, certification, go-live and ongoing support.</p><div class="learning-tags"><span>In scope</span><span>General</span></div></a>
+            </div>
+            <p class="learning-empty" role="status" hidden>No learning materials found.</p>
+          </div>
+        </div>
+        <div class="learning-detail-page" id="screen-learning-detail" data-screen="learning-detail" hidden>
+          <header class="learning-detail-header">
+            <div class="learning-detail-title">
+              <a class="text-action learning-back" href="#learning"><img src="assets/chevron.svg" alt=""> Back to Learning</a>
+              <div class="company-heading">
+                <h1>EGYM account concept</h1>
+                <p>How EGYM accounts work and why they matter for a clean member sync.</p>
+              </div>
+            </div>
+            <div class="learning-tags" aria-label="Topics"><span>In scope</span><span>Membership sync</span><span>Wellpass admission</span></div>
+          </header>
+          <div class="learning-presentation">
+            <div class="learning-slide"><img alt=""><p class="learning-slide-error" role="alert" hidden>Training slides are not included in this public demo.</p></div>
+            <div class="learning-slide-controls" aria-label="Presentation controls">
+              <button type="button" class="slide-previous" aria-label="Previous slide">‹</button>
+              <span class="slide-count" aria-live="polite"></span>
+              <button type="button" class="slide-next" aria-label="Next slide">›</button>
+            </div>
+          </div>
+        </div>
+        <div class="project-details-page" id="screen-project" data-screen="project" hidden>
+          <header class="project-details-header">
+            <a class="text-action project-back" href="#company">
+              <img src="assets/chevron.svg" alt=""> Back
+            </a>
+            <h1>MMS: Member sync, RFID sync</h1>
+          </header>
+
+          <div class="project-details-columns">
+            <section class="project-details-section" aria-labelledby="timeline-heading">
+              <h2 id="timeline-heading">Activity timeline</h2>
+              <div class="timeline-card">
+                <div class="timeline-event" data-prototype-content="project-completed" hidden>
+                  <span class="timeline-dot timeline-dot-active" aria-hidden="true"></span>
+                  <div class="timeline-event-content"><p class="timeline-title">Project completed</p></div>
+                </div>
+                <div class="timeline-divider" data-prototype-content="project-completed" hidden></div>
+                <div class="timeline-event" data-prototype-content="post-pilot" hidden>
+                  <span class="timeline-dot timeline-dot-active" aria-hidden="true" data-prototype-content="pilot"></span>
+                  <span class="timeline-dot" aria-hidden="true" data-prototype-content="project-completed" hidden></span>
+                  <div class="timeline-event-content"><p class="timeline-title">Pilot started</p></div>
+                </div>
+                <div class="timeline-divider" data-prototype-content="post-pilot" hidden></div>
+                <div class="timeline-event" data-prototype-content="post-development" hidden>
+                  <span class="timeline-dot timeline-dot-active" aria-hidden="true" data-prototype-content="review"></span>
+                  <span class="timeline-dot" aria-hidden="true" data-prototype-content="post-pilot" hidden></span>
+                  <div class="timeline-event-content">
+                    <time datetime="2026-08-28">Aug 28, 2026</time>
+                    <p class="timeline-title">Submitted for review</p>
+                  </div>
+                </div>
+                <div class="timeline-divider" data-prototype-content="post-development" hidden></div>
+                <div class="timeline-event" data-prototype-content="development" hidden>
+                  <span class="timeline-dot timeline-dot-active" aria-hidden="true" data-prototype-content="development" data-prototype-exclude="review pilot project-completed"></span>
+                  <span class="timeline-dot" aria-hidden="true" data-prototype-content="post-development" hidden></span>
+                  <div class="timeline-event-content">
+                    <p class="timeline-title">Contract signed</p>
+                    <p class="timeline-description">Development started</p>
+                  </div>
+                </div>
+                <div class="timeline-divider" data-prototype-content="development" hidden></div>
+                <div class="timeline-event">
+                  <span class="timeline-dot timeline-dot-active" aria-hidden="true" data-prototype-content="planning"></span>
+                  <span class="timeline-dot" aria-hidden="true" data-prototype-content="development" hidden></span>
+                  <div class="timeline-event-content">
+                    <time datetime="2026-08-15">Aug 15, 2026</time>
+                    <p class="timeline-title">Pending contract signing</p>
+                  </div>
+                </div>
+                <div class="timeline-divider"></div>
+                <div class="timeline-event">
+                  <span class="timeline-dot" aria-hidden="true"></span>
+                  <div class="timeline-event-content">
+                    <time datetime="2026-08-05">Aug 5, 2026</time>
+                    <p class="timeline-title">Project created</p>
+                    <p class="timeline-description">Support Team assigned as your EGYM contact</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <div class="project-details-sidebar">
+              <section class="project-details-section" aria-labelledby="project-details-heading">
+                <h2 id="project-details-heading">Project details</h2>
+                <dl class="project-facts">
+                  <div><dt>API</dt><dd>MMS API</dd></div>
+                  <div><dt>Scope</dt><dd>Member sync, RFID sync</dd></div>
+                  <div><dt>Current phase</dt><dd><span data-prototype-content="planning">Planning</span><span data-prototype-content="development" data-prototype-exclude="review pilot project-completed" hidden>Development</span><span data-prototype-content="review" hidden>Review</span><span data-prototype-content="pilot" hidden>Pilot</span><span data-prototype-content="project-completed" hidden>Production</span></dd></div>
+                  <div><dt>Environment</dt><dd>—</dd></div>
+                  <div><dt>Created</dt><dd>Aug 5, 2026</dd></div>
+                </dl>
+              </section>
+              <section class="project-details-section" aria-labelledby="contact-heading">
+                <h2 id="contact-heading">Your EGYM contact</h2>
+                <div class="contact-card">
+                  <div class="contact-avatar" aria-hidden="true">MW</div>
+                  <div class="contact-card-info">
+                    <p class="contact-name">Support Team</p>
+                    <p class="contact-role">Integration Manager · EGYM</p>
+                    <button class="inline-action" type="button" aria-disabled="true">contact@example.com <img src="assets/external.svg" alt=""></button>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <aside class="location-panel" role="dialog" aria-labelledby="location-panel-title" hidden>
+      <header class="location-panel-header"><h2 id="location-panel-title"></h2><button class="location-panel-close" type="button" aria-label="Close location details"><img src="assets/close.svg" alt=""></button></header>
+      <div class="location-panel-content">
+        <section>
+          <h3>Location details</h3>
+          <div class="location-fields">
+            <div class="location-field"><span class="sandbox-field-label">EGYM Location ID</span><div class="sandbox-copy-line"><span data-location-field="id" data-copy-value></span><button class="sandbox-icon-button copy-value" type="button" aria-label="Copy EGYM location ID"><img src="assets/copy.svg" alt=""></button></div></div>
+            <div class="location-field"><span class="sandbox-field-label">External Location ID</span><div class="sandbox-copy-line"><span class="muted">Not set yet</span></div></div>
+            <div class="location-field"><span class="sandbox-field-label">Chain</span><div class="sandbox-copy-line"><span data-location-field="chain" data-copy-value></span><button class="sandbox-icon-button copy-value" type="button" aria-label="Copy chain"><img src="assets/copy.svg" alt=""></button></div></div>
+            <div class="location-field"><span class="sandbox-field-label">Location name</span><div class="sandbox-copy-line"><span data-location-field="name" data-copy-value></span><button class="sandbox-icon-button copy-value" type="button" aria-label="Copy location name"><img src="assets/copy.svg" alt=""></button></div></div>
+            <div class="location-field"><span class="sandbox-field-label">Address</span><div class="sandbox-copy-line"><span data-location-field="address" data-copy-value></span><button class="sandbox-icon-button copy-value" type="button" aria-label="Copy address"><img src="assets/copy.svg" alt=""></button></div></div>
+            <div class="location-field"><span class="sandbox-field-label">API status</span><div><span class="sandbox-status active">Active</span></div></div>
+            <div class="location-field"><span class="sandbox-field-label">API key</span><div class="sandbox-key" data-mock-key=""><span class="sandbox-key-value">egym_100•••••••••••••••••••••••••••••••</span><button class="sandbox-icon-button toggle-mock-key" type="button" aria-label="Show mock API key" aria-pressed="false"><img src="assets/view.svg" alt=""></button><button class="sandbox-icon-button copy-mock-key" type="button" aria-label="Copy mock API key"><img src="assets/copy.svg" alt=""></button></div></div>
+          </div>
+        </section>
+        <section>
+          <h3>API permissions</h3>
+          <div class="permission-group"><span class="sandbox-field-label">EGYM</span><div class="permission-row"><span>Sync regular members</span><span class="permission-true">True</span></div></div>
+          <div class="permission-group"><span class="sandbox-field-label">RFID</span><div class="permission-row"><span>Sync RFID</span><span class="permission-true">True</span></div><div class="permission-row"><span>Reverse RFID</span><span class="permission-false">False</span></div></div>
+          <div class="permission-group"><span class="sandbox-field-label">Wellpass</span><div class="permission-row"><span>Sync Wellpass members</span><span class="permission-true">True</span></div></div>
+          <div class="permission-group"><span class="sandbox-field-label">Push notifications</span><div class="permission-row"><span>Send push notifications</span><span class="permission-false">False</span></div></div>
+        </section>
+        <section>
+          <h3>Configuration</h3>
+          <div class="location-fields">
+            <div class="location-field"><span class="sandbox-field-label">Welcome email</span><span>Standard EGYM Welcome email</span></div>
+            <div class="location-field"><span class="sandbox-field-label">Branded member app</span><span class="muted">Not configured</span></div>
+          </div>
+        </section>
+        <section class="product-bookings">
+          <h3>Product booking management</h3>
+          <h4>Machine admission</h4>
+          <div class="location-fields">
+            <div class="location-field"><span class="sandbox-field-label">Product ID</span><span>00000000-0000-4000-8000-000000000001</span></div>
+            <div class="location-field"><span class="sandbox-field-label">Scope</span><span>LOCATION</span></div>
+            <div class="location-field"><span class="sandbox-field-label">Description</span><span>Example product configuration</span></div>
+          </div>
+          <h4>EGYM+</h4>
+          <div class="location-fields">
+            <div class="location-field"><span class="sandbox-field-label">Product ID</span><span>00000000-0000-4000-8000-000000000002</span></div>
+            <div class="location-field"><span class="sandbox-field-label">Scope</span><span>LOCATION</span></div>
+            <div class="location-field"><span class="sandbox-field-label">Description</span><span>Example product configuration</span></div>
+          </div>
+        </section>
+      </div>
+    </aside>
+    <aside class="location-panel acceptance-detail" role="dialog" aria-labelledby="acceptance-detail-title" hidden>
+      <header class="location-panel-header"><h2 id="acceptance-detail-title"></h2><button class="location-panel-close acceptance-detail-close" type="button" aria-label="Close test details"><img src="assets/close.svg" alt=""></button></header>
+      <div class="location-panel-content acceptance-detail-content">
+        <div class="acceptance-detail-example">
+          <section>
+            <h3>How to pass this test</h3>
+            <ol class="acceptance-steps">
+              <li><span>Pass "Sync new member"<small>accountId is required</small></span></li>
+              <li><span>Update the member's personal data in your MMS<small>Use the values below</small></span></li>
+              <li><span>Run this test<small>Checks the member record against the expected values</small></span></li>
+            </ol>
+          </section>
+          <section class="acceptance-criteria">
+            <h3>Acceptance criteria</h3>
+            <p>Use these exact values for this test. To pass this test, your result needs to meet the following conditions.</p>
+            <div class="sandbox-table-wrap">
+              <table><thead><tr><th>Condition</th><th>Your result</th></tr></thead><tbody><tr><td><strong>email</strong> <span>equals</span> <strong>“member6@example.com”</strong></td><td>Not started yet</td></tr><tr><td><strong>lastName</strong> <span>equals</span> <strong>“Example”</strong></td><td>Not started yet</td></tr></tbody></table>
+            </div>
+          </section>
+        </div>
+        <p class="acceptance-detail-placeholder" hidden>Detailed steps for this test have not been mocked up yet.</p>
+      </div>
+    </aside>
+    <aside class="location-panel history-detail" role="dialog" aria-labelledby="history-detail-title" hidden>
+      <header class="location-panel-header"><h2 id="history-detail-title"></h2><button class="location-panel-close history-detail-close" type="button" aria-label="Close test results"><img src="assets/close.svg" alt=""></button></header>
+      <div class="location-panel-content history-detail-content">
+        <div class="history-detail-example">
+          <h3>Results</h3>
+          <div class="sandbox-table-wrap">
+            <table><thead><tr><th>Condition</th><th>Result</th></tr></thead><tbody><tr><td><strong>email</strong> <span>equals</span> <strong>“member6@example.com”</strong></td><td>member6@example.com</td></tr><tr><td><strong>lastName</strong> <span>equals</span> <strong>“Example”</strong></td><td>Example</td></tr></tbody></table>
+          </div>
+        </div>
+        <p class="history-detail-placeholder" hidden>Detailed results for this test have not been mocked up yet.</p>
+      </div>
+    </aside>
+    <div class="sandbox-feedback" role="status" aria-live="polite"></div>
+    <dialog class="review-dialog" aria-labelledby="review-dialog-title" aria-describedby="review-dialog-description">
+      <button class="review-close" type="button" aria-label="Close"><img src="assets/close.svg" alt=""></button>
+      <h2 id="review-dialog-title">Submit for review?</h2>
+      <p id="review-dialog-description">This lets the EGYM team know your integration, online documentation, and technical questionnaire are ready to be checked.</p>
+      <div class="review-actions">
+        <button class="review-cancel" type="button">Cancel</button>
+        <button class="review-confirm" type="button">Submit</button>
+      </div>
+    </dialog>
+    <div class="prototype-controls">
+      <div class="prototype-menu" id="prototype-menu" hidden>
+        <p class="prototype-menu-title">Prototype phase</p>
+        <button type="button" data-prototype-phase="planning" aria-pressed="true">Planning</button>
+        <button type="button" data-prototype-phase="development" aria-pressed="false">Development</button>
+        <button type="button" data-prototype-phase="development-completed" aria-pressed="false">Development completed</button>
+        <button type="button" data-prototype-phase="review" aria-pressed="false">Review</button>
+        <button type="button" data-prototype-phase="pilot" aria-pressed="false">Pilot</button>
+        <button type="button" data-prototype-phase="project-completed" aria-pressed="false">Project completed</button>
+      </div>
+      <button class="prototype-toggle" type="button" aria-controls="prototype-menu" aria-expanded="false" aria-label="Open prototype controls" title="Open prototype controls">
+        <span aria-hidden="true">«</span>
+      </button>
+    </div>
+  </body>
+</html>
